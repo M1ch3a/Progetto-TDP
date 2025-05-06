@@ -1,17 +1,22 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import requests
+import os
 
 app = FastAPI()
 
-# CORS per permettere accesso dal sito web
+# Configura CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In produzione: metti l'URL vero del tuo sito
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Monta la cartella del frontend
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 NEWS_API_KEY = "29301ef09e5c426a96143b785681a53b"
 
