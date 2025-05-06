@@ -109,6 +109,7 @@
       text-decoration: underline;
     }
   </style>
+  <base href="/static/" />
 </head>
 
 <body>
@@ -129,7 +130,7 @@
   <div id="news-container">Caricamento notizie...</div>
 
   <script>
-   const url = 'https://progetto-tdp.onrender.com/news'; // URL assoluto
+   const url = '/news'
 
 fetch(url)
   .then(response => {
