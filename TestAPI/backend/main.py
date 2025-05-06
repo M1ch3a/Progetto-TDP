@@ -1,8 +1,12 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import requests
+import os
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="../frontend"), name="static")  # Modifica qui
 
 # CORS configuration
 app.add_middleware(
