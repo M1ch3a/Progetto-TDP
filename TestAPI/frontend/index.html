@@ -150,7 +150,7 @@ fetch(url)
     container.innerHTML = '';
     
     data.articles.forEach(article => {
-      onst div = document.createElement('div');
+      const div = document.createElement('div');
           div.className = 'news';
           div.innerHTML = `
             ${article.urlToImage ? `<img src="${article.urlToImage}" alt="Immagine notizia">` : ''}
