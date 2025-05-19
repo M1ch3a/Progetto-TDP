@@ -41,7 +41,7 @@ async function loadNews() {
     // 3. Fetch dei dati sul sito hostato su Render
     
     const response = await fetch(
-      `https://esempiotdp.onrender.com/news`
+      `https://mafiawatch.onrender.com/news`
     );
 
     // 4. Verifica se la risposta è OK (status 200-299)
