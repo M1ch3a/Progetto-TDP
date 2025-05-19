@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAFIAWATCH | Chi Siamo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/chi-siamo.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="position-relative">
+  <div id="simple-particles"></div>
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand logo-brand d-flex align-items-center" href="index.html">
+        <i class="fas fa-shield-alt me-2"></i>
+        <span>MAFIA<span class="text-gradient">WATCH</span></span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link px-3" href="index.html">HOME</a>
+          </li>
+          <li class="nav-item dropdown position-relative">
+            <a class="nav-link px-3" href="investigazioni.html" id="investigationLink">
+              INVESTIGAZIONI
+            </a>
+          </li>
+          <li class="nav-item dropdown position-relative">
+            <a class="nav-link px-3 active dropdown-toggle" href="chi-siamo.html" id="chisiamoLink">
+              CHI SIAMO
+            </a>
+            <ul class="dropdown-menu bg-dark border-0 shadow" id="aboutDropdown">
+              <li><a class="dropdown-item text-white-50" href="#missione">La nostra missione</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="about-hero d-flex align-items-center position-relative">
+    <div class="container position-relative">
+      <div class="hero-content text-white text-center">
+        <h1 class="hero-title mb-4">
+          <span class="text-stroke d-block">LA NOSTRA</span>
+          <span class="text-gradient d-block">STORIA</span>
+          <span class="text-stroke d-block">E MISSIONE</span>
+        </h1>
+        <p class="fs-5 mb-4 opacity-75">Scopri chi c'è dietro MAFIAWATCH</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="py-5 about-section fade-in" id="missione">
+      <div class="container py-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="about-content">
+              <h2 class="section-title display-4 fw-bold mb-5">
+                <span class="text-stroke d-block">LA NOSTRA</span>
+                <span class="text-gradient d-block">MISSIONE</span>
+              </h2>
+              <p class="lead">MAFIAWATCH nasce con l'obiettivo di tenere il pubblico aggiornato sulle attività della criminalità organizzata attraverso investigazioni approfondite e report accurati.</p>
+              <div class="about-features mt-5">
+                <div class="feature-item d-flex mb-4">
+                  <div class="feature-icon me-4">
+                    <i class="fas fa-eye text-gradient fs-1"></i>
+                  </div>
+                  <div>
+                    <h4>Monitoraggio Costante</h4>
+                    <p class="mb-0">Forniamo informazioni 24/7 sulle attività delle organizzazioni criminali in Italia e nel mondo.</p>
+                  </div>
+                </div>
+                <div class="feature-item d-flex mb-4">
+                  <div class="feature-icon me-4">
+                    <i class="fas fa-chart-line text-gradient fs-1"></i>
+                  </div>
+                  <div>
+                    <h4>Analisi Dati</h4>
+                    <p class="mb-0">Teniamo traccia dei flussi finanziari e delle connessioni occulte.</p>
+                  </div>
+                </div>
+                <div class="feature-item d-flex">
+                  <div class="feature-icon me-4">
+                    <i class="fas fa-shield-alt text-gradient fs-1"></i>
+                  </div>
+                  <div>
+                    <h4>Protezione Informazioni</h4>
+                    <p class="mb-0">Garantiamo la massima sicurezza nella gestione delle fonti e delle informazioni sensibili.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-image text-center">
+              <img src="chi-siamo.jpg" 
+                  alt="Missione MAFIAWATCH" 
+                  class="img-fluid rounded shadow-lg resized-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <footer class="pt-5">
+    <div class="container pt-4">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <div class="footer-logo d-flex align-items-center justify-content-center mb-3">
+            <i class="fas fa-shield-alt me-2"></i>
+            <span>MAFIA<span class="text-gradient">WATCH</span></span>
+          </div>
+          <p class="text-white-50">La fonte più avanzata di notizie e analisi sulla criminalità organizzata</p>
+        </div>
+      </div>
+      <div class="py-4 border-top border-dark text-center text-white-50">
+        <p class="mb-0">&copy; 2025 MAFIAWATCH. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/scroll-chi-siamo.js"></script>
+  <script scr="js/scroll"></script>
+
+  
+</body>
+</html>
