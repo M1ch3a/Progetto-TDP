@@ -1,0 +1,539 @@
+/* 
+  VARIABILI CSS GLOBALI:
+  Definiscono i colori e gradienti principali usati nel sito
+  Facilita la manutenzione e garantisce coerenza visiva
+*/
+:root {
+  --primary: #FF6B35; /* Arancione principale */
+  --primary-dark: #E05A2B; /* Arancione scuro per hover/stati attivi */
+  --secondary: #004E89; /* Blu per accenti secondari */
+  --dark: #0A0F0F; /* Colore di sfondo scuro principale */
+  --darker: #050909; /* Colore di sfondo ancora più scuro */
+  --light: #F7F9F9; /* Colore testo chiaro */
+  --metal: linear-gradient(135deg, #C0C0C0, #A8A8A8, #909090, #787878); /* Effetto metallico */
+  --gradient: linear-gradient(90deg, #FF6B35, #FFBE0B); /* Gradiente arancione-giallo */
+  --bs-orange: #FF6B35; /* Variante arancione compatibile con Bootstrap */
+  --bs-dark-card: #1a1a1a; /* Colore per le card */
+}
+
+/* 
+  STILI DI BASE:
+  Applicati all'intero documento
+*/
+body {
+  font-family: 'Montserrat', sans-serif; /* Font principale leggibile */
+  background-color: var(--dark); /* Sfondo scuro */
+  color: var(--light); /* Testo chiaro per contrasto */
+  position: relative; /* Permette posizionamento assoluto degli elementi figli */
+}
+
+/* 
+  UTILITY CLASSES PER TESTO:
+  Classi riutilizzabili per effetti testuali
+*/
+
+/* Effetto testo con gradiente */
+.text-gradient {
+  background: var(--gradient); /* Applica gradiente come sfondo */
+  -webkit-background-clip: text; /* Ritaglia lo sfondo alla forma del testo */
+  -webkit-text-fill-color: transparent; /* Rende il testo trasparente */
+}
+
+/* Effetto testo con bordo */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--light); /* Aggiunge bordo di 1px al testo */
+  color: transparent; /* Rende il testo trasparente */
+}
+
+/* Colore arancione per testo */
+.text-orange {
+  color: var(--bs-orange) !important; /* Forza colore arancione */
+}
+
+/* 
+  UTILITY CLASSES PER SFONDI:
+  Classi riutilizzabili per background
+*/
+.bg-orange {
+  background-color: var(--bs-orange) !important; /* Sfondo arancione */
+}
+
+.bg-dark-card {
+  background-color: var(--bs-dark-card) !important; /* Sfondo per card */
+}
+
+/* 
+  STILI NAVBAR:
+  Barra di navigazione principale
+*/
+.navbar {
+  background: rgba(10, 15, 15, 0.95); /* Sfondo semi-trasparente */
+  backdrop-filter: blur(10px); /* Effetto sfocatura per glass morphism */
+  border-bottom: 1px solid rgba(255,255,255,0.05); /* Bordo sottile */
+  transition: all 0.4s ease; /* Transizione fluida per cambiamenti */
+}
+
+/* Stato "scrolled" della navbar */
+.navbar.scrolled {
+  background: rgba(5, 9, 9, 0.98); /* Sfondo più scuro quando si scrolla */
+}
+
+/* Stile del logo */
+.logo-brand {
+  font-size: 1.8rem; /* Dimensione grande */
+  font-weight: 800; /* Spessore del font */
+  letter-spacing: 2px; /* Spaziatura tra lettere */
+}
+
+/* Icona nel logo */
+.logo-brand i {
+  background: var(--metal); /* Applica gradiente metallico */
+  -webkit-background-clip: text; /* Ritaglia lo sfondo al testo */
+  -webkit-text-fill-color: transparent; /* Testo trasparente */
+}
+
+/* Stile dei link di navigazione */
+.nav-link {
+  position: relative; /* Per posizionare il pseudo-elemento */
+}
+
+/* Effetto sottolineatura animata */
+.nav-link::after {
+  content: ''; /* Pseudo-elemento vuoto */
+  position: absolute; /* Posizionamento assoluto */
+  bottom: 0; /* Allineato in basso */
+  left: 0; /* Allineato a sinistra */
+  width: 0; /* Inizialmente invisibile */
+  height: 2px; /* Altezza della linea */
+  background: var(--gradient); /* Colore gradiente */
+  transition: all 0.4s ease; /* Animazione fluida */
+}
+
+/* Sottolineatura al passaggio del mouse */
+.nav-link:hover::after {
+  width: 100%; /* Espande la linea */
+}
+
+/* Mostra dropdown al passaggio del mouse */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Stile del menu dropdown */
+.dropdown-menu {
+  background-color: #111; /* Sfondo molto scuro */
+  margin-top: 0; /* Rimuove spazio sopra */
+  border-radius: 0 0 6px 6px; /* Arrotonda solo gli angoli inferiori */
+}
+
+/* Elementi del dropdown */
+.dropdown-item {
+  font-weight: 500; /* Peso del font medio */
+  padding: 0.6rem 1.2rem; /* Spaziatura interna */
+  transition: background 0.3s ease; /* Transizione fluida */
+}
+
+/* Effetto hover sugli elementi dropdown */
+.dropdown-item:hover {
+  background-color: rgba(255, 190, 11, 0.1); /* Sfondo semi-trasparente */
+  color: #FFBE0B !important; /* Cambia colore testo */
+}
+
+/* 
+  SEZIONE HERO:
+  Area introduttiva a tutto schermo
+*/
+.hero {
+  height: 100vh; /* Altezza pari alla viewport */
+  min-height: 800px; /* Altezza minima */
+  background: 
+    linear-gradient(rgba(10,15,15,0.8), rgba(5,9,9,0.9)), /* Sovrapposizione gradiente */
+    url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+    no-repeat center center/cover; /* Immagine di sfondo */
+}
+
+/* Titolo principale della hero */
+.hero-title {
+  font-size: 5rem; /* Dimensione molto grande */
+  line-height: 1.1; /* Interlinea stretta */
+  font-family: 'Playfair Display', serif; /* Font elegante per titoli */
+  font-weight: 900; /* Peso massimo del font */
+}
+
+/* 
+  CARD NOTIZIE:
+  Stili per le card delle notizie
+*/
+.news-card {
+  background: rgba(10, 15, 15, 0.8); /* Sfondo semi-trasparente */
+  border: 1px solid rgba(255, 107, 53, 0.15); /* Bordo sottile */
+  border-radius: 10px; /* Angoli arrotondati */
+  overflow: hidden; /* Nasconde contenuto fuori dai bordi */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animazione personalizzata */
+  height: 100%; /* Altezza piena */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+  position: relative; /* Per posizionare pseudo-elementi */
+}
+
+/* Effetto hover sulle card */
+.news-card:hover {
+  transform: translateY(-5px); /* Solleva la card */
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3); /* Ombra più evidente */
+  border-color: rgba(255, 107, 53, 0.4); /* Bordo più visibile */
+}
+
+/* Bordo gradiente al passaggio del mouse */
+.news-card::after {
+  content: ''; /* Pseudo-elemento vuoto */
+  position: absolute; /* Posizionamento assoluto */
+  top: -2px; /* Estende oltre i bordi */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient); /* Gradiente come sfondo */
+  z-index: -1; /* Sotto il contenuto */
+  border-radius: 12px; /* Arrotondamento */
+  opacity: 0; /* Inizialmente invisibile */
+  transition: opacity 0.4s ease; /* Apparizione fluida */
+}
+
+/* Mostra bordo gradiente al passaggio del mouse */
+.news-card:hover::after {
+  opacity: 0.5; /* Semi-trasparente */
+}
+
+/* Contenuto della card */
+.news-content {
+  padding: 1.5rem; /* Spaziatura interna */
+  background: rgba(10, 15, 15, 0.9); /* Sfondo semi-trasparente */
+  height: 100%; /* Altezza piena */
+  display: flex; /* Layout flessibile */
+  flex-direction: column; /* Disposizione verticale */
+}
+
+/* Contenitore immagine */
+.news-img-container {
+  height: 200px; /* Altezza fissa */
+  overflow: hidden; /* Nasconde parti fuori misura */
+}
+
+/* Stile immagine */
+.news-img-container img {
+  transition: all 0.6s ease; /* Animazione fluida */
+  object-fit: cover; /* Adatta l'immagine mantenendo proporzioni */
+  width: 100%; /* Larghezza piena */
+  height: 100%; /* Altezza piena */
+}
+
+/* Effetto zoom sull'immagine al passaggio del mouse */
+.news-card:hover .news-img-container img {
+  transform: scale(1.1); /* Ingrandimento del 10% */
+}
+
+/* Titolo della notizia */
+.news-title {
+  color: white; /* Testo bianco */
+  font-size: 1.25rem; /* Dimensione media */
+  font-weight: 700; /* Grassetto */
+  margin-bottom: 0.75rem; /* Spaziatura inferiore */
+  line-height: 1.4; /* Interlinea */
+  transition: color 0.3s ease; /* Cambio colore fluido */
+}
+
+/* Cambio colore titolo al passaggio del mouse */
+.news-title:hover {
+  color: var(--primary); /* Arancione principale */
+}
+
+/* Testo di anteprima */
+.news-excerpt {
+  color: rgba(255, 255, 255, 0.8); /* Testo semi-trasparente */
+  font-size: 0.9rem; /* Dimensione piccola */
+  margin-bottom: 1.5rem; /* Spaziatura inferiore */
+  line-height: 1.6; /* Interlinea ampia */
+  flex-grow: 1; /* Occupa spazio disponibile */
+}
+
+/* Badge categoria */
+.news-badge {
+  background: var(--gradient); /* Sfondo gradiente */
+  color: var(--darker); /* Testo scuro per contrasto */
+  padding: 0.25rem 0.75rem; /* Spaziatura interna */
+  border-radius: 20px; /* Forma arrotondata */
+  font-size: 0.75rem; /* Dimensione molto piccola */
+  font-weight: 700; /* Grassetto */
+  display: inline-block; /* Visualizzazione inline */
+  margin-bottom: 1rem; /* Spaziatura inferiore */
+  align-self: flex-start; /* Allineamento a sinistra */
+}
+
+/* Link alla notizia */
+.news-link {
+  color: var(--primary); /* Colore arancione */
+  text-decoration: none; /* Rimuove sottolineatura */
+  font-weight: 600; /* Semi-grassetto */
+  font-size: 0.9rem; /* Dimensione piccola */
+  transition: all 0.3s ease; /* Transizione fluida */
+  display: inline-flex; /* Layout flessibile */
+  align-items: center; /* Centra verticalmente */
+}
+
+/* Effetto hover sul link */
+.news-link:hover {
+  color: white; /* Cambia colore */
+}
+
+/* Icona nel link */
+.news-link i {
+  transition: transform 0.3s ease; /* Animazione fluida */
+  margin-left: 0.5rem; /* Spaziatura a sinistra */
+}
+
+/* Sposta icona al passaggio del mouse */
+.news-link:hover i {
+  transform: translateX(5px); /* Spostamento a destra */
+}
+
+/* 
+  PULSANTI:
+  Stili per i pulsanti con effetto gradiente
+*/
+.btn-gradient {
+  background: transparent; /* Sfondo trasparente */
+  color: white; /* Testo bianco */
+  font-weight: 600; /* Semi-grassetto */
+  border: none; /* Nessun bordo */
+  padding: 0.8rem 1.8rem; /* Spaziatura interna */
+  position: relative; /* Per posizionare pseudo-elementi */
+  transition: all 0.3s ease; /* Animazione fluida */
+  border-radius: 8px; /* Angoli arrotondati */
+  cursor: pointer; /* Cursore a mano */
+  z-index: 1; /* Sovrapposizione */
+  overflow: hidden; /* Nasconde contenuto fuori dai bordi */
+}
+
+/* Effetto hover sul pulsante */
+.btn-gradient:hover {
+  font-weight: 700; /* Grassetto */
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.7); /* Ombra al testo */
+  transform: translateY(-2px); /* Leggero sollevamento */
+}
+
+/* Bordo gradiente al passaggio del mouse */
+.btn-gradient:hover::before {
+  content: ''; /* Pseudo-elemento vuoto */
+  position: absolute; /* Posizionamento assoluto */
+  top: -2px; /* Estende oltre i bordi */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: 
+    linear-gradient(var(--darker), var(--darker)) padding-box,
+    var(--gradient) border-box; /* Doppio sfondo per bordo */
+  border: 2px solid transparent; /* Bordo trasparente */
+  border-radius: 8px; /* Arrotondamento */
+  z-index: -1; /* Sotto il testo */
+}
+
+/* Icona nel pulsante */
+.btn-gradient i {
+  transition: transform 0.3s ease; /* Animazione fluida */
+}
+
+/* Sposta icona al passaggio del mouse */
+.btn-gradient:hover i {
+  transform: translateX(4px); /* Spostamento a destra */
+}
+
+/* 
+  EFFETTI HOVER:
+  Classi riutilizzabili per effetti al passaggio del mouse
+*/
+
+/* Cambia colore in arancione */
+.hover-orange:hover {
+  color: var(--bs-orange) !important;
+}
+
+/* Sottolineatura animata */
+.hover-underline {
+  position: relative; /* Per posizionare pseudo-elemento */
+}
+
+/* Pseudo-elemento per sottolineatura */
+.hover-underline::after {
+  content: ''; /* Vuoto */
+  position: absolute; /* Posizionamento assoluto */
+  bottom: -2px; /* Posizionato sotto */
+  left: 0; /* Allineato a sinistra */
+  width: 0; /* Inizialmente invisibile */
+  height: 2px; /* Altezza */
+  background: var(--gradient); /* Colore gradiente */
+  transition: width 0.3s ease; /* Animazione fluida */
+}
+
+/* Mostra sottolineatura al passaggio del mouse */
+.hover-underline:hover::after {
+  width: 100%; /* Espande a piena larghezza */
+}
+
+/* Cambio colore testo */
+.hover-underline:hover {
+  color: var(--primary) !important;
+}
+
+/* Opacità immagine card */
+.card-img-opacity {
+  opacity: 0.8; /* Leggera trasparenza */
+  transition: opacity 0.3s ease; /* Animazione fluida */
+}
+
+/* Immagine piena al passaggio del mouse */
+.card-img-opacity:hover {
+  opacity: 1; /* Nessuna trasparenza */
+}
+
+/* 
+  PARTICELLE:
+  Stili per gli effetti particellari
+*/
+#hero-particles, #simple-particles {
+  position: absolute; /* Posizionamento assoluto */
+  width: 100%; /* Larghezza piena */
+  height: 100%; /* Altezza piena */
+  top: 0; /* Allineato in alto */
+  left: 0; /* Allineato a sinistra */
+}
+
+/* Livello z-index per particelle hero */
+#hero-particles {
+  z-index: 1;
+}
+
+/* Particelle secondarie */
+#simple-particles {
+  position: fixed; /* Posizionamento fisso */
+  z-index: -1; /* Sotto gli altri elementi */
+  pointer-events: none; /* Ignora interazioni mouse */
+}
+
+/* 
+  FOOTER:
+  Stili per il piè di pagina
+*/
+footer {
+  background: var(--darker); /* Sfondo molto scuro */
+  border-top: 1px solid rgba(255,255,255,0.05); /* Bordo superiore sottile */
+}
+
+/* Logo nel footer */
+.footer-logo {
+  font-size: 1.8rem; /* Dimensione grande */
+  font-weight: 800; /* Extra-grassetto */
+}
+
+/* Icona nel logo footer */
+.footer-logo i {
+  background: var(--metal); /* Gradiente metallico */
+  -webkit-background-clip: text; /* Ritaglia al testo */
+  -webkit-text-fill-color: transparent; /* Testo trasparente */
+}
+
+/* 
+  POSIZIONAMENTO CONTENUTO:
+  Gestione dei livelli z-index
+*/
+main, .container.position-relative {
+  position: relative; /* Posizionamento relativo */
+  z-index: 2; /* Sopra le particelle */
+}
+
+/* 
+  ANIMAZIONI CON @KEYFRAMES:
+  Definizioni di animazioni personalizzate che possono essere riutilizzate
+  tramite la proprietà 'animation' sugli elementi HTML.
+*/
+
+/* 
+  Animazione "pulse" - Effetto pulsante:
+  Crea un leggero effetto di battito/scalatura
+  - A 0% e 100%: dimensione normale (scale(1)) e opacità piena
+  - A 50%: lieve ingrandimento (scale(1.05)) e leggera trasparenza
+  Utile per attirare l'attenzione su elementi importanti come pulsanti o notifiche
+*/
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); /* Dimensione normale */
+    opacity: 1; /* Completamente visibile */
+  }
+  50% { 
+    transform: scale(1.05); /* Leggeramente ingrandito */
+    opacity: 0.8; /* Leggeramente trasparente */ 
+  }
+}
+
+/* 
+  Animazione "float" - Effetto fluttuante:
+  Crea un movimento verticale su e giù
+  - A 0% e 100%: posizione normale (translateY(0))
+  - A 50%: si sposta verso l'alto di 10px
+  Ideale per elementi decorativi o icone per un effetto dinamico
+*/
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0); /* Posizione originale */
+  }
+  50% { 
+    transform: translateY(-10px); /* Si alza di 10px */ 
+  }
+}
+
+/* 
+  Animazione "shine" - Effetto brillante:
+  Simula un riflesso luminoso che scorre orizzontalmente
+  - Parte da -30% a sinistra (fuori dalla vista)
+  - Termina a 130% a destra (fuori dalla vista)
+  Spesso usata su bottoni o elementi metallici per effetto "glossy"
+*/
+@keyframes shine {
+  0% { 
+    left: -30%; /* Inizia fuori dall'elemento a sinistra */ 
+  }
+  100% { 
+    left: 130%; /* Termina fuori dall'elemento a destra */ 
+  }
+}
+
+/* 
+  MEDIA QUERIES (@media):
+  Regole CSS condizionali che applicano stili diversi in base a:
+  - Larghezza dello schermo (responsive design)
+  - Tipo di dispositivo
+  - Orientamento (ritratto/paesaggio)
+  - Risoluzione
+  - Altre caratteristiche del dispositivo
+
+  Sintassi: @media (condizione) { stili qui }
+*/
+
+/* 
+  Media query per tablet (schermi fino a 1199px di larghezza):
+  Modifica la dimensione del titolo hero per adattarsi meglio
+  a schermi di medie dimensioni come tablet
+*/
+@media (max-width: 1199px) {
+  .hero-title { 
+    font-size: 4rem; /* Riduce da 5rem a 4rem */ 
+  }
+}
+
+/* 
+  Media query per mobile (schermi fino a 767px di larghezza):
+  Ulteriore riduzione del titolo hero per dispositivi mobili
+  per garantire leggibilità e layout ottimale
+*/
+@media (max-width: 767px) {
+  .hero-title { 
+    font-size: 2.8rem; /* Riduce ulteriormente a 2.8rem */ 
+  }
+}

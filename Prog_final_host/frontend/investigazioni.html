@@ -1,0 +1,243 @@
+<!DOCTYPE html> <!-- Dichiara che il documento è in HTML5, lo standard attuale per le pagine web -->
+<html lang="it"> <!-- Inizio del documento HTML, con lingua impostata su italiano -->
+<head>
+  <meta charset="UTF-8"> <!-- Imposta la codifica dei caratteri su UTF-8, così da supportare tutti i caratteri speciali e lettere accentate -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rende la pagina responsive, cioè adatta a tutti i dispositivi (PC, tablet, smartphone) -->
+  <title>MAFIAWATCH | Investigazioni</title> <!-- Titolo della pagina che appare nella scheda del browser -->
+
+  <!-- Collegamento al framework Bootstrap per avere uno stile moderno e responsive senza scrivere tutto il CSS da zero -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Collegamento a Font Awesome per poter usare facilmente icone vettoriali nelle varie parti della pagina -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Collegamento a Google Fonts per usare font personalizzati e rendere la grafica più accattivante -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Collegamento ai file CSS personalizzati: uno generale e uno specifico per questa pagina -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_investigation.css">
+</head>
+<body class="position-relative"> <!-- Inizio del corpo della pagina; la classe serve per gestire elementi posizionati in modo assoluto rispetto al body -->
+  
+  <!-- NAVBAR: Barra di navigazione fissa in alto, visibile su tutte le pagine -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container"> <!-- Contenitore Bootstrap per allineare e centrare il contenuto -->
+      <!-- Logo del sito: icona + testo -->
+      <a class="navbar-brand logo-brand d-flex align-items-center" href="index.html">
+        <i class="fas fa-shield-alt me-2"></i> <!-- Icona scudo, simbolo di protezione -->
+        <span>MAFIA<span class="text-gradient">WATCH</span></span> <!-- Nome del sito, con parte colorata -->
+      </a>
+      
+      <!-- Bottone per il menu mobile (hamburger): appare solo su schermi piccoli -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Menu di navigazione, che si può espandere/collassare su dispositivi mobili -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto"> <!-- Lista delle voci di menu, allineata a destra -->
+          <li class="nav-item">
+            <a class="nav-link px-3" href="index.html" >HOME</a> <!-- Link alla home page -->
+          </li>
+          <li class="nav-item dropdown position-relative">
+            <!-- Link attivo (pagina corrente) con menu a tendina -->
+            <a class="nav-link px-3 active dropdown-toggle" href="investigazioni.html" id="investigationLink">
+              INVESTIGAZIONI
+            </a>
+            <!-- Menu a tendina con link alle sezioni interne della pagina -->
+            <ul class="dropdown-menu bg-dark border-0 shadow" id="investigationDropdown">
+              <li><a class="dropdown-item text-white-50" href="#comparison">Confronto Interattivo</a></li>
+              <li><a class="dropdown-item text-white-50" href="#timeline">Cronologia Storica</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="chi-siamo.html">CHI SIAMO</a> <!-- Link alla pagina "Chi siamo" -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION: Sezione introduttiva con titolo e sottotitolo -->
+  <section class="investigations-hero d-flex align-items-center position-relative">
+    <div class="container position-relative">
+      <div class="hero-content text-white text-center">
+        <h1 class="hero-title mb-4">
+          <span class="text-stroke d-block">MAFIA</span>
+          <span class="text-gradient d-block">'NDRANGHETA</span>
+        </h1>
+        <p class="fs-5 mb-4 opacity-75">Analisi comparativa delle due principali organizzazioni criminali italiane</p> <!-- Sottotitolo descrittivo -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE CONFRONTO INTERATTIVO: Tab per confrontare diversi aspetti delle organizzazioni -->
+  <section id="comparison" class="interactive-comparison py-5 bg-darker">
+    <div class="container py-5">
+      <div class="section-header text-center mb-5">
+        <h2 class="section-title display-3 fw-bold">
+          <span class="text-stroke d-block">CONFRONTO</span>
+          <span class="text-gradient d-block">INTERATTIVO</span>
+        </h2>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto"> <!-- Colonna centrale per i tab -->
+          <div class="comparison-tabs">
+            <!-- NAV-TABS: Barre di navigazione per cambiare aspetto da confrontare -->
+            <ul class="nav nav-tabs justify-content-center" id="comparisonTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="structure-tab" data-bs-toggle="tab" data-bs-target="#structure" type="button" role="tab">Struttura</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="economy-tab" data-bs-toggle="tab" data-bs-target="#economy" type="button" role="tab">Economia</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="territory-tab" data-bs-toggle="tab" data-bs-target="#territory" type="button" role="tab">Territorio</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="international-tab" data-bs-toggle="tab" data-bs-target="#international" type="button" role="tab">Internazionale</button>
+              </li>
+            </ul>
+            
+            <!-- CONTENUTO DEI TAB: Ogni tab mostra un grafico e una breve spiegazione -->
+            <div class="tab-content mt-4" id="comparisonTabContent">
+              <!-- Tab Struttura -->
+              <div class="tab-pane fade show active" id="structure" role="tabpanel">
+                <div class="comparison-chart">
+                  <canvas id="structureChart"></canvas> <!-- Grafico generato via JavaScript -->
+                </div>
+                <p class="mt-3 text-center">La Mafia ha una struttura piramidale con un capo chiaramente identificabile, mentre la 'Ndrangheta opera con una struttura orizzontale basata su famiglie autonome ma collegate.</p>
+              </div>
+              <!-- Tab Economia -->
+              <div class="tab-pane fade" id="economy" role="tabpanel">
+                <div class="comparison-chart">
+                  <canvas id="economyChart"></canvas>
+                </div>
+                <p class="mt-3 text-center">Entrambe generano miliardi, ma la 'Ndrangheta domina il traffico di cocaina in Europa, mentre la Mafia è più focalizzata su appalti pubblici ed estorsioni.</p>
+              </div>
+              <!-- Tab Territorio -->
+              <div class="tab-pane fade" id="territory" role="tabpanel">
+                <div class="comparison-chart">
+                  <canvas id="territoryChart"></canvas>
+                </div>
+                <p class="mt-3 text-center">La Mafia è storicamente radicata in Sicilia con espansione al nord, la 'Ndrangheta è presente in tutta Italia con forte radicamento in Calabria.</p>
+              </div>
+              <!-- Tab Internazionale -->
+              <div class="tab-pane fade" id="international" role="tabpanel">
+                <div class="comparison-chart">
+                  <canvas id="internationalChart"></canvas>
+                </div>
+                <p class="mt-3 text-center">La 'Ndrangheta ha una rete internazionale più estesa, presente in 40+ paesi, mentre la Mafia ha legami principalmente con USA e Sud America.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE CRONOLOGIA: Timeline storica degli eventi principali -->
+  <section id="timeline" class="timeline-section py-5">
+    <div class="container py-5">
+      <div class="section-header text-center mb-5">
+        <h2 class="section-title display-3 fw-bold">
+          <span class="text-stroke d-block">CRONOLOGIA</span>
+          <span class="text-gradient d-block">STORICA</span>
+        </h2>
+      </div>
+      
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-line"></div> <!-- Linea verticale della timeline -->
+          
+          <!-- Ogni timeline-item rappresenta un evento storico, alternato a sinistra e destra -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>1800</h4>
+              <p>Origini della Mafia in Sicilia come sistema di protezione</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>1860</h4>
+              <p>Prime testimonianze della 'Ndrangheta in Calabria</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>1920-30</h4>
+              <p>Espansione della Mafia negli USA durante il proibizionismo</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>1950-60</h4>
+              <p>La 'Ndrangheta si consolida con il sequestro di persona</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>1980-90</h4>
+              <p>Guerra di Mafia in Sicilia con oltre 1.000 omicidi</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>2000</h4>
+              <p>La 'Ndrangheta diventa leader nel traffico di cocaina in Europa</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <h4>2010</h4>
+              <p>Operazioni anti-mafia smantellano clan storici</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <h4>2020</h4>
+              <p>La 'Ndrangheta è considerata la più potente organizzazione criminale in Europa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER: Piè di pagina con logo, descrizione e copyright -->
+  <footer class="pt-5">
+    <div class="container pt-4">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <div class="footer-logo d-flex align-items-center justify-content-center mb-3">
+            <i class="fas fa-shield-alt me-2"></i> <!-- Icona scudo -->
+            <span>MAFIA<span class="text-gradient">WATCH</span></span> <!-- Nome del sito -->
+          </div>
+          <p class="text-white-50">Il più avanzato sistema di monitoraggio e analisi della criminalità organizzata</p>
+        </div>
+      </div>
+      
+      <div class="py-4 border-top border-dark text-center text-white-50">
+        <p class="mb-0">&copy; 2025 MAFIAWATCH. Tutti i diritti riservati.</p> <!-- Copyright -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS: Inclusione dei file JavaScript necessari per funzionalità e grafici -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Script Bootstrap per funzionalità responsive -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Script per effetti grafici di particelle -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Libreria per creare grafici interattivi -->
+  <script src="js/charts.js"></script> <!-- Script personalizzato per configurare i grafici dei confronti -->
+  <script src="js/timeline.js"></script> <!-- Script per eventuali animazioni/interazioni sulla timeline -->
+  <script src="js/scroll.js"></script> <!-- Script per effetti di scroll o navigazione fluida -->
+</body>
+</html>
